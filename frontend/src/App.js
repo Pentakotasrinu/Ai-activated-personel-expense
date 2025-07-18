@@ -44,7 +44,7 @@ const App = () => {
   const fetchExpenses = async () => {
     try {
       const res = await fetch(
-        `http://localhost:5000/api/expenses?email=${userEmail}`
+        `${process.env.REACT_APP_BACKEND_URL}/api/expenses?email=${userEmail}`
       );
       const data = await res.json();
 
@@ -61,7 +61,7 @@ const App = () => {
   const fetchIncome = async () => {
     try {
       const res = await fetch(
-        `http://localhost:5000/api/income?email=${userEmail}`
+        `${process.env.REACT_APP_BACKEND_URL}/api/income?email=${userEmail}`
       );
       const data = await res.json();
 

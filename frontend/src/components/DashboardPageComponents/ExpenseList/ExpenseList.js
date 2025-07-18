@@ -19,7 +19,7 @@ const ExpenseList = ({ expenses, fetchExpenses }) => {
   const confirmDelete = async () => {
     try {
       const res = await fetch(
-        `http://localhost:5000/api/expenses/delete/${selectedExpenseId}`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/expenses/delete/${selectedExpenseId}`,
         {
           method: "DELETE",
         }

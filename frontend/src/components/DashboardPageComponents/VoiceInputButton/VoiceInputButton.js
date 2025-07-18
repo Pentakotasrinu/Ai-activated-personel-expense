@@ -153,7 +153,7 @@ const VoiceInputButton = ({
       console.log("📤 Sending income:", payload);
 
       try {
-        const res = await fetch("http://localhost:5000/api/income/add", {
+        const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/income/add`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
@@ -216,7 +216,7 @@ const VoiceInputButton = ({
       console.log("📤 Sending expense:", payload);
 
       try {
-        const res = await fetch("http://localhost:5000/api/expenses/add", {
+        const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/expenses/add`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),

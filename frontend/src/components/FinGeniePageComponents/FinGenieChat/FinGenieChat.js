@@ -94,7 +94,7 @@ const FinGenieChat = ({
     try {
       const messageWithContext = `System: You are a helpful AI financial assistant. For generic greetings like 'hello,' respond with a friendly message or offer assistance with financial queries. User: ${userMessage}`;
 
-      const response = await fetch("http://localhost:5000/api/gemini", {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/gemini`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

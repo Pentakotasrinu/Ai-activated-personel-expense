@@ -35,7 +35,7 @@ const FinGenie = ({ email }) => {
   const fetchExpenses = async () => {
     try {
       const res = await fetch(
-        `http://localhost:5000/api/expenses?email=${email}`
+        `${process.env.REACT_APP_BACKEND_URL}/api/expenses?email=${email}`
       );
       const data = await res.json();
       setExpenses(data.expenses || []);
@@ -48,7 +48,7 @@ const FinGenie = ({ email }) => {
     // New API Call
     try {
       const res = await fetch(
-        `http://localhost:5000/api/income?email=${email}`
+        `${process.env.REACT_APP_BACKEND_URL}/api/income?email=${email}`
       );
       const data = await res.json();
       setIncome(data.incomeRecords || []); // Check your backend response

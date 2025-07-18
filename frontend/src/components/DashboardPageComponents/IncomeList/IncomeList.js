@@ -10,7 +10,7 @@ const IncomeList = ({ incomeList = [], fetchIncome }) => {
   const confirmDelete = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/income/delete/${selectedId}`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/income/delete/${selectedId}`,
         {
           method: "DELETE",
         }

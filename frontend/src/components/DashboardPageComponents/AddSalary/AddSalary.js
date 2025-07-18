@@ -24,7 +24,7 @@ const AddSalary = ({ email, setIncomeList, setTotalIncome }) => {
 
     try {
       setLoading(true);
-      const response = await fetch("http://localhost:5000/api/income/add", {
+      const response = await fetch("${process.env.REACT_APP_BACKEND_URL}/api/income/add", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newIncome),
@@ -38,7 +38,7 @@ const AddSalary = ({ email, setIncomeList, setTotalIncome }) => {
 
         // Fetch updated income list from the backend
         const updatedResponse = await fetch(
-          `http://localhost:5000/api/income?email=${email}`
+          `${process.env.REACT_APP_BACKEND_URL}/api/income?email=${email}`
         );
         const updatedData = await updatedResponse.json();
 
