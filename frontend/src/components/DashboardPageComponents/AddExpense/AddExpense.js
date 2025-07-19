@@ -40,7 +40,7 @@ const AddExpense = ({ email, setExpenses, setTotalExpenses }) => {
 
     try {
       setLoading(true);
-      const response = await fetch("${process.env.REACT_APP_BACKEND_URL}/api/expenses/add", {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/expenses/add`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newExpense),
