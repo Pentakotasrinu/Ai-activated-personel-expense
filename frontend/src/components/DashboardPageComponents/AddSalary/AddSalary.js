@@ -24,7 +24,7 @@ const AddSalary = ({ email, setIncomeList, setTotalIncome }) => {
 
     try {
       setLoading(true);
-      const response = await fetch("${process.env.REACT_APP_BACKEND_URL}/api/income/add", {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/income/add`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newIncome),
