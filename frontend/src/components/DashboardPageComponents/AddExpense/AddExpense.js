@@ -11,6 +11,8 @@ const AddExpense = ({ email, setExpenses, setTotalExpenses }) => {
   });
   const [loading, setLoading] = useState(false);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false); // New state for success message
+  const API_BASE = "https://ai-activated-personel-expense-backend.onrender.com";
+
 
   // Handle Input Changes
   const handleChange = (e) => {
@@ -40,7 +42,7 @@ const AddExpense = ({ email, setExpenses, setTotalExpenses }) => {
 
     try {
       setLoading(true);
-      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/expenses/add`, {
+      const response = await fetch(`${API_BASE}/api/expenses/add`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newExpense),
@@ -53,9 +55,8 @@ const AddExpense = ({ email, setExpenses, setTotalExpenses }) => {
         setShowSuccessMessage(true);
 
         // Fetch updated expense list from the backend
-        const updatedResponse = await fetch(
-          `${process.env.REACT_APP_BACKEND_URL}/api/expenses?email=${email}`
-        );
+        const updatedResponse = await fetch(`${API_BASE}/api/expenses?email=${email}`);
+      
         const updatedData = await updatedResponse.json();
 
         if (updatedResponse.ok) {
